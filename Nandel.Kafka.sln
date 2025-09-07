@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nandel.Kafka", "src\Nandel.Kafka\Nandel.Kafka.csproj", "{08E95D04-6C67-4492-B685-56FD83A33027}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3787C8DC-4F33-40B8-A213-6211D3A4B9EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandbox", "sandbox", "{89F8168E-F25C-433B-B812-073309765CEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThroughputBenchmark", "sandbox\ThroughputBenchmark\ThroughputBenchmark.csproj", "{353AA5F7-8517-4311-8CCC-080297C4AF8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08E95D04-6C67-4492-B685-56FD83A33027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E95D04-6C67-4492-B685-56FD83A33027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E95D04-6C67-4492-B685-56FD83A33027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E95D04-6C67-4492-B685-56FD83A33027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08E95D04-6C67-4492-B685-56FD83A33027} = {3787C8DC-4F33-40B8-A213-6211D3A4B9EA}
+		{353AA5F7-8517-4311-8CCC-080297C4AF8C} = {89F8168E-F25C-433B-B812-073309765CEB}
+	EndGlobalSection
+EndGlobal
