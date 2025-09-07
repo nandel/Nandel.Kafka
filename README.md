@@ -61,14 +61,12 @@ services.AddMessageConsumer<Message, Consumer>(); // this setups a consumer to s
 ThroughputBenchmark
 
 ```console
-testWindowSeconds: 300
-Messages produced: 1465261
-Messages consumed: 1465261
-Messages Consumed Per Second: 4,681.04
-Messages Produced Per Second: 4,681.04
-OS Version: Microsoft Windows NT 10.0.26100.0
-Is 64-bit OS: True
-Number of Logical Processors: 8
-.NET Version: 9.0.6
-Is 64-bit Process: True
+Execution Length (seconds): 300
+Messages produced: 1599532
+Messages consumed: 1599532
+Messages per second: 4,669.84
+:
+OS: Microsoft Windows NT 10.0.26100.0; 64-bit:True
+Number of logical processors: 8
+.NET version: 9.0.6
 ```
