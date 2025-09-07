@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace ThroughputBenchmark;
+namespace ThroughputBenchmark.Support;
 
 public static class SerilogTwoStageInitialization
 {

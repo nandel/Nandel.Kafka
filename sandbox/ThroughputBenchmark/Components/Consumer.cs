@@ -1,9 +1,10 @@
 ﻿using Nandel.Kafka.Contracts;
+using ThroughputBenchmark.Benchmark;
 
-namespace ThroughputBenchmark;
+namespace ThroughputBenchmark.Components;
 
 [MessageConsumer(Message.TopicName, "benchs.throughput.consumer")]
-public class Consumer(ILogger<Consumer> logger, BenchState state) : IMessageHandler<Message>
+public class Consumer(ILogger<Consumer> logger, BenchmarkState state) : IMessageHandler<Message>
 {
     public Task HandleAsync(IMessageEnvelope<Message> envelope, Message message, CancellationToken cancel)
     {

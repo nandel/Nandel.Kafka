@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Nandel.Kafka.Contracts;
 
-namespace ThroughputBenchmark;
+namespace ThroughputBenchmark.Components;
 
 [MessageTopic(TopicName)]
 public class Message

@@ -43,6 +43,7 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08adeb814f7140df977fc4e37bfe2ea26d400/93/33a0c3cc/IAdminClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/sandbox/ThroughputBenchmark/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/sandbox/ThroughputBenchmark/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -67,7 +68,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -191,7 +192,7 @@
       <workItem from="1745611612066" duration="913000" />
       <workItem from="1757223212408" duration="1949000" />
       <workItem from="1757225168970" duration="36000" />
-      <workItem from="1757225220609" duration="5352000" />
+      <workItem from="1757225220609" duration="13476000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -213,5 +214,24 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial" />
     <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/sandbox/ThroughputBenchmark/Program.cs</url>
+          <line>49</line>
+          <properties documentPath="C:\Users\fefso\OneDrive\Documentos\Nandel.Dev\repos.public\Nandel.Kafka\sandbox\ThroughputBenchmark\Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="1567" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1611" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
