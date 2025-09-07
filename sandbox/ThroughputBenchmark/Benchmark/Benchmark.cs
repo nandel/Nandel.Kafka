@@ -50,19 +50,15 @@ public class Benchmark(BenchmarkState state, Producer producer, ILogger<Benchmar
 
         return new NameValueCollection()
         {
-            { nameof(testWindowSeconds), testWindowSeconds.ToString() },
-            
+            { "Execution Length (seconds)", testWindowSeconds.ToString() },
             { "Messages produced", state.MessagesProduced.ToString() },
             { "Messages consumed", state.MessagesConsumed.ToString() },
+            { "Messages per second", (state.MessagesConsumed / TimeSpan.FromTicks(endTimestamp - state.StartTimestamp).TotalSeconds).ToString("N") },
             
-            { "Messages Consumed Per Second", (state.MessagesConsumed / TimeSpan.FromTicks(endTimestamp - state.StartTimestamp).TotalSeconds).ToString("N") },
-            { "Messages Produced Per Second", (state.MessagesProduced / TimeSpan.FromTicks(endTimestamp - state.StartTimestamp).TotalSeconds).ToString("N") },
-            
-            { "OS Version", $"{Environment.OSVersion.VersionString}" },
-            { "Is 64-bit OS", $"{Environment.Is64BitOperatingSystem}" },
-            { "Number of Logical Processors", $"{Environment.ProcessorCount}" },
-            { ".NET Version", $"{Environment.Version}" },
-            { "Is 64-bit Process", $"{Environment.Is64BitProcess}" },
+            { "", "" },
+            { "OS", $"{Environment.OSVersion.VersionString}; 64-bit:{Environment.Is64BitOperatingSystem}" },
+            { "Number of logical processors", $"{Environment.ProcessorCount}" },
+            { ".NET version", $"{Environment.Version}" },
         };
     }
 }
