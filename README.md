@@ -11,17 +11,17 @@ Consumers should implement the interface `IMessageHandler<TMessage>` where `TMes
 using Nandel.Kafka.Contracts;
 
 [MessageTopic(TopicName)]
-public class Message
+public class MessageBody
 {
     public const string TopicName = "benchs.throughput.message";
 
     [JsonPropertyName("value")] public Guid Value { get; set; }
 }
 
-[MessageConsumer(Message.TopicName, "benchs.throughput.consumer")]
-public class Consumer(ILogger<Consumer> logger) : IMessageHandler<Message>
+[MessageConsumer(MessageBody.TopicName, "benchs.throughput.consumer")]
+public class Consumer(ILogger<Consumer> logger) : IMessageHandler<MessageBody>
 {
-    public Task HandleAsync(IMessageEnvelope<Message> envelope, Message message, CancellationToken cancel)
+    public Task HandleAsync(IMessageEnvelope<MessageBody> envelope, MessageBody message, CancellationToken cancel)
     {
         logger.LogInformation("Message Consumed");
         return Task.CompletedTask;
@@ -37,8 +37,9 @@ public class Producer(IMessagePublisher publisher)
 {
     public async Task PublishMessageAsync(CancellationToken cancel)
     {
-        var message = new Message { Value = Guid.NewGuid() };
-        await publisher.PublishAsync(message.Value.ToString(), message, cancel);
+        var messageKey = Guid.NewGuid().ToString();
+        var messageBody = new MessageBody { Value = Guid.NewGuid() };
+        await publisher.PublishAsync(messageKey, messageBody, cancel);
     }
 }
 ```
@@ -53,7 +54,7 @@ injection container using the extension `.AddMessageConsumer<TMessage, TConsumer
 ```csharp
 IServiceCollection services;
 services.AddNandelKafka(builder.Configuration.GetSection("Kafka")); // this configures Nandel.Kafka
-services.AddMessageConsumer<Message, Consumer>(); // this setups a consumer to start
+services.AddMessageConsumer<MessageBody, Consumer>(); // this setups a consumer to start
 ```
 
 ## Benchmark Results
