@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Confluent.Kafka;
+﻿using Confluent.Kafka;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -16,7 +12,7 @@ namespace Nandel.Kafka.Consumers;
 public class KafkaConsumer<TMessage, THandler> : BackgroundService 
     where THandler : IMessageHandler<TMessage>
 {
-    private const int DEFAULT_WORKER_COUNT = 4;
+    private const int DEFAULT_WORKER_COUNT = 6;
     
     private readonly IKafkaErrorHandler _errorHandler;
     private readonly ILogger<KafkaConsumer<TMessage, THandler>> _logger;
@@ -43,7 +39,7 @@ public class KafkaConsumer<TMessage, THandler> : BackgroundService
         await Task.Yield(); // 💡 Let host continue startup
         
         _logger.LogInformation(
-            "\ud83d\ude80 Kafka Consumer Starting {GroupId} connected at topic {Topic}",
+            "\ud83d\ude80 Starting Kafka Consumer {GroupId} connected at topic {Topic}",
             _attributes.GroupId, _attributes.TopicName);
 
         _consumer.Subscribe(_attributes.TopicName);
@@ -59,7 +55,10 @@ public class KafkaConsumer<TMessage, THandler> : BackgroundService
             {
                 await ConsumeAndEnqueueAsync(stoppingToken);
             }
-
+            catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
+            {
+                _logger.LogInformation("\ud83d\udca4 Stopping Kafka Consumer {GroupId}", _attributes.GroupId);
+            }
             catch (KafkaException e) when (_errorHandler.CanHandle(e))
             {
                 await _errorHandler.HandleAsync(e);
@@ -76,7 +75,7 @@ public class KafkaConsumer<TMessage, THandler> : BackgroundService
         
         _consumer.Close();
         
-        _logger.LogInformation("\ud83d\udca4 Kafka Consumer Stopping {GroupId}", _attributes.GroupId);
+        _logger.LogInformation("\ud83d\udca4 Stopped Kafka Consumer {GroupId}", _attributes.GroupId);
     }
 
     private async Task ConsumeAndEnqueueAsync(CancellationToken cancel)

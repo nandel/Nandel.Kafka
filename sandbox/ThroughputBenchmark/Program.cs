@@ -18,7 +18,7 @@ builder.Services.AddNandelKafka(builder.Configuration.GetSection("Connection"));
 builder.Services.AddSingleton<Benchmark>();
 builder.Services.AddSingleton<BenchmarkState>();
 builder.Services.AddSingleton<Producer>();
-builder.Services.AddMessageConsumer<Message, Consumer>();
+builder.Services.AddKafkaMessageConsumer<MessageBody, Consumer>();
 
 var app = builder.Build();
 var cts = new CancellationTokenSource(delay: TimeSpan.FromSeconds(benchmarkTimeoutSeconds));
@@ -28,7 +28,7 @@ var admin = app.Services.GetRequiredService<IAdminClient>();
 
 try
 {
-    await admin.DeleteTopicsAsync([Message.TopicName]);
+    await admin.DeleteTopicsAsync([MessageBody.TopicName]);
 }
 catch (Exception e) when (e is DeleteTopicsException)
 {

@@ -3,10 +3,10 @@ using ThroughputBenchmark.Benchmark;
 
 namespace ThroughputBenchmark.Components;
 
-[MessageConsumer(Message.TopicName, "benchs.throughput.consumer")]
-public class Consumer(ILogger<Consumer> logger, BenchmarkState state) : IMessageHandler<Message>
+[MessageConsumer(MessageBody.TopicName, "benchs.throughput.consumer")]
+public class Consumer(ILogger<Consumer> logger, BenchmarkState state) : IMessageHandler<MessageBody>
 {
-    public Task HandleAsync(IMessageEnvelope<Message> envelope, Message message, CancellationToken cancel)
+    public Task HandleAsync(IMessageEnvelope<MessageBody> envelope, MessageBody messageBody, CancellationToken cancel)
     {
         state.IncrementMessagesConsumed();
         return Task.CompletedTask;

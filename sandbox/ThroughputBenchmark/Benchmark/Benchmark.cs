@@ -22,11 +22,11 @@ public class Benchmark(BenchmarkState state, Producer producer, ILogger<Benchmar
             var elapsed = TimeSpan.FromTicks(state.ElapsedTicks);
             state.TargetMessageProductionPerSecond = state.WorkloadCompleted switch
             {
-                > 0.99m => state.TargetMessageProductionPerSecond * 3,
-                > 0.98m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 2)),
-                > 0.97m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 1.5)),
-                > 0.96m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 1.2)),
-                > 0.95m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 1.1)),
+                > 0.99m => state.TargetMessageProductionPerSecond * 5,
+                > 0.98m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 3)),
+                > 0.97m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 2)),
+                > 0.96m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 1.5)),
+                > 0.95m => Math.Max(2, (int) (state.TargetMessageProductionPerSecond * 1.2)),
                 _ => Math.Max(1, (int) (state.TargetMessageProductionPerSecond * 0.95))
             };
 

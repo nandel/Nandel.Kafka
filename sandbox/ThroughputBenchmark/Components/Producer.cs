@@ -11,7 +11,7 @@ public class Producer(IMessagePublisher publisher, BenchmarkState state)
         while (cancel.IsCancellationRequested == false)
         {
             var batch = Enumerable.Range(0, state.TargetMessageProductionPerSecond)
-                .Select(_ => new Message { Value = Guid.NewGuid() })
+                .Select(_ => new MessageBody { Value = Guid.NewGuid() })
                 .Select(message => publisher.PublishAsync(message.Value.ToString(), message, CancellationToken.None).ContinueWith(_ => state.IncrementMessagesProduced(), CancellationToken.None))
                 .Union([Task.Delay(TimeSpan.FromSeconds(1), CancellationToken.None)])
                 .ToList();

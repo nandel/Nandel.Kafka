@@ -8,6 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandbox", "sandbox", "{89F8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThroughputBenchmark", "sandbox\ThroughputBenchmark\ThroughputBenchmark.csproj", "{353AA5F7-8517-4311-8CCC-080297C4AF8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nandel.Kafka.Outbox", "src\Nandel.Kafka.Outbox\Nandel.Kafka.Outbox.csproj", "{DF881860-5D72-43C4-AACC-7E749325D75B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "sandbox\WebApi\WebApi.csproj", "{F5DA6417-4422-43B2-9508-E56A393B6170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +26,19 @@ Global
 		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{353AA5F7-8517-4311-8CCC-080297C4AF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF881860-5D72-43C4-AACC-7E749325D75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF881860-5D72-43C4-AACC-7E749325D75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF881860-5D72-43C4-AACC-7E749325D75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF881860-5D72-43C4-AACC-7E749325D75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DA6417-4422-43B2-9508-E56A393B6170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DA6417-4422-43B2-9508-E56A393B6170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DA6417-4422-43B2-9508-E56A393B6170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DA6417-4422-43B2-9508-E56A393B6170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{08E95D04-6C67-4492-B685-56FD83A33027} = {3787C8DC-4F33-40B8-A213-6211D3A4B9EA}
 		{353AA5F7-8517-4311-8CCC-080297C4AF8C} = {89F8168E-F25C-433B-B812-073309765CEB}
+		{DF881860-5D72-43C4-AACC-7E749325D75B} = {3787C8DC-4F33-40B8-A213-6211D3A4B9EA}
+		{F5DA6417-4422-43B2-9508-E56A393B6170} = {89F8168E-F25C-433B-B812-073309765CEB}
 	EndGlobalSection
 EndGlobal

@@ -12,7 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyInjection
 {
-    public static void AddNandelKafka(this IServiceCollection services, IConfigurationSection config)
+    public static IServiceCollection AddNandelKafka(this IServiceCollection services, IConfigurationSection config)
     {
         services.AddOptions<KafkaSettings>().Bind(config);
         
@@ -25,12 +25,16 @@ public static class DependencyInjection
             var clientConfig = new AdminClientConfig().SetupConnection(options.Value);
             return new AdminClientBuilder(clientConfig).Build();
         });
+
+        return services;
     }
     
-    public static void AddMessageConsumer<TMessage, TConsumer>(this IServiceCollection services)
+    public static IServiceCollection AddKafkaMessageConsumer<TMessage, TConsumer>(this IServiceCollection services)
         where TConsumer : class, IMessageHandler<TMessage>
     {
         services.TryAddScoped<TConsumer>();
         services.AddHostedService<KafkaConsumer<TMessage, TConsumer>>();
+
+        return services;
     }
 }

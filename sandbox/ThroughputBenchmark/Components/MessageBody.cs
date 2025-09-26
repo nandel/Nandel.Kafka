@@ -4,7 +4,7 @@ using Nandel.Kafka.Contracts;
 namespace ThroughputBenchmark.Components;
 
 [MessageTopic(TopicName)]
-public class Message
+public class MessageBody
 {
     public const string TopicName = "benchs.throughput.message";
 

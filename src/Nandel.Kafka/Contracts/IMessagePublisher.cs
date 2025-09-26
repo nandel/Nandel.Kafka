@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Linq;
+﻿using System.Collections.Concurrent;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Nandel.Kafka.Contracts;
 
@@ -11,9 +7,9 @@ public interface IMessagePublisher
 {
     private static readonly ConcurrentDictionary<Type, string> s_topics = new(); 
     
-    Task PublishAsync(string topic, string key, string value, CancellationToken cancel);
+    Task PublishAsync(string topic, string key, string value, CancellationToken cancel = new());
     
-    public async Task PublishAsync<T>(string key, T value, CancellationToken cancel)
+    public async Task PublishAsync<T>(string key, T value, CancellationToken cancel = new())
     {
         // Yeah, it's a trait, deal with it!
         
