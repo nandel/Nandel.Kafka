@@ -48,7 +48,7 @@ Setting up your project to work with Nandel.Kafka you need first to install it t
 system using the new method `AddNandelKafka` available as an extension of `IServiceCollection`.
 
 For each implementation of `IMessageHandler<T>` you need to setup a consumer to start adding it to your dependency 
-injection container using the extension `.AddKafkaMessageConsumer<TMessage, TConsumer>()`.
+injection container using the extension `.AddMessageConsumer<TMessage, TConsumer>()`.
 
 ```csharp
 IServiceCollection services;
